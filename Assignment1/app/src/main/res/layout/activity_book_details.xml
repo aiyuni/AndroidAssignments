@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -32,14 +35,15 @@
 
     <ImageButton
         android:id="@+id/bookImageButton"
-        android:layout_width="139dp"
-        android:layout_height="98dp"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
         android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.396"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bookTitleText"
-        android:background="@null"></ImageButton>
+        android:background="@null"
+        android:scaleType="fitXY"></ImageButton>
 
     <TextView
         android:id="@+id/publisherText"
@@ -87,3 +91,4 @@
         app:layout_constraintTop_toBottomOf="@+id/descriptionText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
