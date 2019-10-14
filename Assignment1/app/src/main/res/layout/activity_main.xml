@@ -10,7 +10,7 @@
     tools:context=".MainActivity">
 
     <ListView
-        android:id="@+id/list1"
+        android:id="@+id/bookListView"
         android:layout_width="351dp"
         android:layout_height="693dp"
         android:layout_marginEnd="8dp"
