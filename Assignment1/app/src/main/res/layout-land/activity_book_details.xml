@@ -19,19 +19,20 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.007" />
+        app:layout_constraintVertical_bias="0.044" />
 
     <ImageButton
         android:id="@+id/bookImageButton"
         android:layout_width="157dp"
         android:layout_height="207dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="5dp"
         android:background="@null"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bookTitleText"></ImageButton>
 
@@ -40,22 +41,22 @@
         android:layout_width="350dp"
         android:layout_height="25dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:text="bookAuthors"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.816"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookImageButton" />
+        app:layout_constraintTop_toBottomOf="@+id/bookTitleText" />
 
     <TextView
         android:id="@+id/publisherText"
         android:layout_width="350dp"
         android:layout_height="25dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
         android:text="Publisher: "
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.816"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bookAuthorsText" />
 
@@ -64,36 +65,36 @@
         android:layout_width="350dp"
         android:layout_height="25dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
         android:text="Publish Date:"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.816"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/publisherText" />
 
     <TextView
         android:id="@+id/descriptionText"
         android:layout_width="350dp"
-        android:layout_height="160dp"
+        android:layout_height="135dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:scrollbars="vertical"
         android:text="Description: "
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.816"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/publishDateText" />
 
     <TextView
         android:id="@+id/isbnText"
-        android:layout_width="350dp"
-        android:layout_height="25dp"
+        android:layout_width="262dp"
+        android:layout_height="22dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="32dp"
         android:text="ISBN:"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionText" />
+        app:layout_constraintTop_toBottomOf="@+id/bookImageButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

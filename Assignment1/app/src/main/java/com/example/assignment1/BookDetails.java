@@ -105,7 +105,7 @@ public class BookDetails extends AppCompatActivity {
             Picasso.get().load(imageUrl).into(bookImage);
 
             /*Get title*/
-            titleText.setText("Title: " + volumeInfo.get("title").toString());
+            titleText.setText(volumeInfo.get("title").toString());
 
             /*Get author(s) */
             List<String> authorList = new ArrayList<String>();
