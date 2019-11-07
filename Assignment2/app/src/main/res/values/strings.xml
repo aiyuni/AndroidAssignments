@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Assignment2</string>
+    <string name="app_name">Assignment 2</string>
     <string name="hintUserId">UserID</string>
     <string name="hintReadingDate">Reading Date</string>
     <string name="hintReadingTime">Reading Time</string>
