@@ -11,13 +11,12 @@
         android:id="@+id/editTextUserId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/hintUserId"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <EditText
         android:id="@+id/editTextReadingDate"
@@ -33,7 +32,7 @@
         android:id="@+id/editTextReadingTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:hint="@string/hintReadingDate"
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@+id/editTextReadingDate"
@@ -43,7 +42,7 @@
         android:id="@+id/editTextSystolicReading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:hint="@string/hintSystolicReading"
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@+id/editTextReadingTime"
@@ -53,7 +52,7 @@
         android:id="@+id/editTextDiastolicReading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:hint="@string/hintDiastolicReading"
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@+id/editTextSystolicReading"
@@ -78,13 +77,23 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextCondition"
         tools:layout_editor_absoluteX="-16dp" />
 
+
     <Button
         android:id="@+id/buttonGoToReadings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:text="Go to readings"
         app:layout_constraintTop_toBottomOf="@+id/buttonAddReading"
-        tools:layout_editor_absoluteX="-16dp" />
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Button
+        android:id="@+id/buttonGoToAverages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="See Monthly Averages"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGoToReadings"
+        tools:layout_editor_absoluteX="16dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

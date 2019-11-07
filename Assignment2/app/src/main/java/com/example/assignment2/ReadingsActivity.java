@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -112,6 +114,8 @@ public class ReadingsActivity extends AppCompatActivity {
         updateButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+
+
                 String readingTime = editTextReadingTime.getText().toString();
                 String readingDate = editTextReadingDate.getText().toString();
                 String systolicReading = editTextSystolicReading.getText().toString();
@@ -119,7 +123,21 @@ public class ReadingsActivity extends AppCompatActivity {
                // String condition = editTextCondition.getText().toString();
 
                 updateReadings(userId, readingDate, readingTime, Integer.parseInt(systolicReading), Integer.parseInt(diastolicReading));
-                alertDialog.dismiss();
+
+                if (Integer.parseInt(systolicReading) > 180 && Integer.parseInt(diastolicReading) > 120){
+                    AlertDialog alertDialog = new AlertDialog.Builder(ReadingsActivity.this).create();
+                    alertDialog.setTitle("WARNING");
+                    alertDialog.setMessage("You are hypertensive. See doctor immediately!");
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    alertDialog.show();
+                } else {
+                    alertDialog.dismiss();
+                }
             }
         });
 

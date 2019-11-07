@@ -1,8 +1,10 @@
 package com.example.assignment2;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
@@ -84,6 +86,19 @@ public class MainActivity extends AppCompatActivity {
 
         Task setValueTask =databaseReadings.child(userId).setValue(bp);
 
+        if (Integer.parseInt(systolicReadingString) > 180 && Integer.parseInt(diastolicReadingString) > 120){
+            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+            alertDialog.setTitle("WARNING");
+            alertDialog.setMessage("You are hypertensive. See doctor immediately!");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
+
         setValueTask.addOnSuccessListener(new OnSuccessListener() {
             @Override
             public void onSuccess(Object o) {
@@ -94,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 editDiastolicReading.setText("");
                 editSystolicReading.setText("");
                 resetData();
+
             }
         });
 
