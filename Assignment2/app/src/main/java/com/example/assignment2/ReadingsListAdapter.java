@@ -46,12 +46,12 @@ public class ReadingsListAdapter extends ArrayAdapter<BloodPressure> {
        TextView conditionView = listViewItem.findViewById(R.id.textViewCondition);
 
        BloodPressure bp = readingsList.get(position);
-       userIdView.setText(String.valueOf(bp.userID));
-       readingDateView.setText(bp.readingDate);
-       readingTimeView.setText(bp.readingTime);
-       systolicView.setText(String.valueOf(bp.systolicReading));
-       diastolicView.setText(String.valueOf(bp.diastolicReading));
-       conditionView.setText(String.valueOf(bp.condition));
+       userIdView.setText(String.valueOf(bp.userName));
+       readingDateView.setText("Date Of Reading: " + bp.readingDate);
+       readingTimeView.setText("Time Of Reading: " + bp.readingTime);
+       systolicView.setText("Systolic Reading: " + String.valueOf(bp.systolicReading));
+       diastolicView.setText("Diastolic Reading: " + String.valueOf(bp.diastolicReading));
+       conditionView.setText("Condition: " + String.valueOf(bp.condition));
 
        return listViewItem;
    }

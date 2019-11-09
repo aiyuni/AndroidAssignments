@@ -50,7 +50,7 @@ public class ReadingsActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 BloodPressure bp = readingsList.get(i);
-                showUpdateDialog(bp.userID, bp.readingDate, bp.readingTime, bp.systolicReading, bp.diastolicReading);
+                showUpdateDialog(bp.userID, bp.userName, bp.readingDate, bp.readingTime, bp.systolicReading, bp.diastolicReading);
                 return false;
             }
         });
@@ -80,7 +80,7 @@ public class ReadingsActivity extends AppCompatActivity {
         });
     }
 
-    private void showUpdateDialog(final String userId, String readingDate, String readingTime, int systolicReading, int diastolicReading){
+    private void showUpdateDialog(final String userId, String userName, String readingDate, String readingTime, int systolicReading, int diastolicReading){
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
 
         LayoutInflater inflater = getLayoutInflater();
@@ -88,20 +88,24 @@ public class ReadingsActivity extends AppCompatActivity {
         final View dialogView = inflater.inflate(R.layout.update_dialog, null);
         dialogBuilder.setView(dialogView);
 
-        final EditText editTextUserId = dialogView.findViewById(R.id.editTextUserId);
+        //final EditText editTextUserId = dialogView.findViewById(R.id.editTextUserId);
+        final EditText editTextUserName = dialogView.findViewById(R.id.editTextUserName);
         final EditText editTextReadingDate = dialogView.findViewById(R.id.editTextReadingDate);
         final EditText editTextReadingTime = dialogView.findViewById(R.id.editTextReadingTime);
         final EditText editTextSystolicReading = dialogView.findViewById(R.id.editTextSystolicReading);
         final EditText editTextDiastolicReading = dialogView.findViewById(R.id.editTextDiastolicReading);
         final EditText editTextCondition = dialogView.findViewById(R.id.editTextCondition);
 
-        editTextUserId.setText(userId);
+       // editTextUserId.setText(userId);
+        editTextUserName.setText(userName);
         editTextReadingDate.setText(readingDate);
         editTextReadingTime.setText(readingTime);
         editTextSystolicReading.setText(String.valueOf(systolicReading));
         editTextDiastolicReading.setText(String.valueOf(diastolicReading));
 
-        editTextUserId.setFocusable(false);
+       // editTextUserId.setFocusable(false);
+        editTextReadingDate.setFocusable(false);
+        editTextReadingTime.setFocusable(false);
 
         final Button updateButton = dialogView.findViewById(R.id.btnUpdate);
         final Button deleteButton = dialogView.findViewById(R.id.btnDelete);
@@ -115,16 +119,16 @@ public class ReadingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
-
+                String userName = editTextUserName.getText().toString();
                 String readingTime = editTextReadingTime.getText().toString();
                 String readingDate = editTextReadingDate.getText().toString();
                 String systolicReading = editTextSystolicReading.getText().toString();
                 String diastolicReading = editTextDiastolicReading.getText().toString();
                // String condition = editTextCondition.getText().toString();
 
-                updateReadings(userId, readingDate, readingTime, Integer.parseInt(systolicReading), Integer.parseInt(diastolicReading));
+                updateReadings(userId, userName, readingDate, readingTime, Integer.parseInt(systolicReading), Integer.parseInt(diastolicReading));
 
-                if (Integer.parseInt(systolicReading) > 180 && Integer.parseInt(diastolicReading) > 120){
+                if (Integer.parseInt(systolicReading) > 180 || Integer.parseInt(diastolicReading) > 120){
                     AlertDialog alertDialog = new AlertDialog.Builder(ReadingsActivity.this).create();
                     alertDialog.setTitle("WARNING");
                     alertDialog.setMessage("You are hypertensive. See doctor immediately!");
@@ -150,10 +154,10 @@ public class ReadingsActivity extends AppCompatActivity {
         });
     }
 
-    private void updateReadings(String id, String readingDate, String readingTime, int systolicReading, int diastolicReading){
+    private void updateReadings(String id, String name, String readingDate, String readingTime, int systolicReading, int diastolicReading){
 
         DatabaseReference dbRef = databaseReadings.child(id);
-        BloodPressure bp = new BloodPressure(id, readingDate, readingTime, systolicReading, diastolicReading);
+        BloodPressure bp = new BloodPressure(id, name, readingDate, readingTime, systolicReading, diastolicReading);
 
         Task setValueTask = dbRef.setValue(bp);
 

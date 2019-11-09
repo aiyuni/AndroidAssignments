@@ -11,6 +11,7 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -25,12 +26,12 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText editUserId;
-    EditText editReadingDate;
-    EditText editReadingTime;
+    EditText editUserName;
+    TextView editReadingDate;
+    TextView editReadingTime;
     EditText editSystolicReading;
     EditText editDiastolicReading;
-    EditText condition;
+    TextView condition;
     Button buttonAddReading;
     Button buttonGoToReadings;
 
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        editUserId = findViewById(R.id.editTextUserId);
+        editUserName = findViewById(R.id.editTextUserName);
         editReadingDate = findViewById(R.id.editTextReadingDate);
         editReadingTime = findViewById(R.id.editTextReadingTime);
         editSystolicReading = findViewById(R.id.editTextSystolicReading);
@@ -75,36 +76,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addReading(){
-        //String userId = editUserId.getText().toString().trim();
+        //String userId = editUserName.getText().toString().trim();
+        String userName = editUserName.getText().toString();
         String dateString = editReadingDate.getText().toString();
         String timeString = editReadingTime.getText().toString();
         String systolicReadingString = editSystolicReading.getText().toString();
         String diastolicReadingString = editDiastolicReading.getText().toString();
 
         String userId = databaseReadings.push().getKey();
-        BloodPressure bp = new BloodPressure(userId, dateString, timeString, Integer.parseInt(systolicReadingString), Integer.parseInt(diastolicReadingString));
+        BloodPressure bp = new BloodPressure(userId, userName, dateString, timeString, Integer.parseInt(systolicReadingString), Integer.parseInt(diastolicReadingString));
 
         Task setValueTask =databaseReadings.child(userId).setValue(bp);
 
-        if (Integer.parseInt(systolicReadingString) > 180 && Integer.parseInt(diastolicReadingString) > 120){
-            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-            alertDialog.setTitle("WARNING");
-            alertDialog.setMessage("You are hypertensive. See doctor immediately!");
-            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-            alertDialog.show();
-        }
+        if (Integer.parseInt(systolicReadingString) > 180 || Integer.parseInt(diastolicReadingString) > 120){
+                    AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+                    alertDialog.setTitle("WARNING");
+                    alertDialog.setMessage("You are hypertensive. See doctor immediately!");
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    alertDialog.show();
+                }
 
-        setValueTask.addOnSuccessListener(new OnSuccessListener() {
-            @Override
-            public void onSuccess(Object o) {
-                Toast.makeText(MainActivity.this, "Blood pressure reading added", Toast.LENGTH_LONG).show();
-                editUserId.setText("");
-                editReadingDate.setText("");
+                setValueTask.addOnSuccessListener(new OnSuccessListener() {
+                    @Override
+                    public void onSuccess(Object o) {
+                        Toast.makeText(MainActivity.this, "Blood pressure reading added", Toast.LENGTH_LONG).show();
+                        editUserName.setText("");
+                        editReadingDate.setText("");
                 editReadingTime.setText("");
                 editDiastolicReading.setText("");
                 editSystolicReading.setText("");

@@ -8,7 +8,7 @@
 
 
     <EditText
-        android:id="@+id/editTextUserId"
+        android:id="@+id/editTextUserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -18,23 +18,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/editTextReadingDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="@string/hintReadingDate"
-        android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUserId"
-        tools:layout_editor_absoluteX="0dp" />
+        android:text="@string/hintReadingDate"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUserName"
+        tools:layout_editor_absoluteX="-60dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/editTextReadingTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="@string/hintReadingDate"
-        android:inputType="textPersonName"
+        android:layout_marginTop="28dp"
+        android:text="@string/hintReadingDate"
         app:layout_constraintTop_toBottomOf="@+id/editTextReadingDate"
         tools:layout_editor_absoluteX="0dp" />
 
@@ -42,7 +40,7 @@
         android:id="@+id/editTextSystolicReading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:hint="@string/hintSystolicReading"
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@+id/editTextReadingTime"
@@ -52,19 +50,17 @@
         android:id="@+id/editTextDiastolicReading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:hint="@string/hintDiastolicReading"
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@+id/editTextSystolicReading"
         tools:layout_editor_absoluteX="0dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/editTextCondition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="@string/hintCondition"
-        android:inputType="none"
+        android:layout_marginTop="8dp"
+        android:text="@string/hintCondition"
         app:layout_constraintTop_toBottomOf="@+id/editTextDiastolicReading"
         tools:layout_editor_absoluteX="0dp" />
 
@@ -72,20 +68,19 @@
         android:id="@+id/buttonAddReading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         android:text="@string/btnAddReading"
         app:layout_constraintTop_toBottomOf="@+id/editTextCondition"
-        tools:layout_editor_absoluteX="-16dp" />
-
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/buttonGoToReadings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:text="Go to readings"
         app:layout_constraintTop_toBottomOf="@+id/buttonAddReading"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="-16dp" />
 
     <Button
         android:id="@+id/buttonGoToAverages"
@@ -93,7 +88,7 @@
         android:layout_height="wrap_content"
         android:text="See Monthly Averages"
         app:layout_constraintTop_toBottomOf="@+id/buttonGoToReadings"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="0dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
