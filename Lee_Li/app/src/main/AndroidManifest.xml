@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ReadingsActivity"></activity>
-        <activity android:name=".MonthlyActivity"></activity>
+        <activity android:name=".ReadingsListAdapter"/>
+        <activity android:name=".BloodPressure"/>
+        <activity android:name=".MonthlyActivity"/>
+        <activity android:name=".MonthlyListAdapter"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

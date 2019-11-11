@@ -46,12 +46,12 @@ public class MonthlyActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 readingsList.clear();
-                double total = 0.0;
-                double count = 0.0;
-                double average = 0.0;
+                //double total = 0.0;
+                //double count = 0.0;
+                //double average = 0.0;
                 for(DataSnapshot readingsSnapShot: dataSnapshot.getChildren()){
-                    double systolic = Double.parseDouble((String)readingsSnapShot.child("systolicReading").getValue());
-                    double diastolic = Double.parseDouble((String)readingsSnapShot.child("diastolicReading").getValue());
+                    //double systolic = Double.parseDouble((String)readingsSnapShot.child("systolicReading").getValue());
+                    //double diastolic = Double.parseDouble((String)readingsSnapShot.child("diastolicReading").getValue());
                     BloodPressure bp = readingsSnapShot.getValue(BloodPressure.class);
                     readingsList.add(bp);
                 }

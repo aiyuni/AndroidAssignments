@@ -1,94 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-
-    <EditText
-    android:id="@+id/editTextUserName"
+    android:id="@+id/scroll"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"
-    android:ems="10"
-    android:hint="@string/hintUserId"
-    android:inputType="textPersonName"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    tools:context=".MainActivity" >
 
-    <TextView
-        android:id="@+id/editTextReadingDate"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/hintReadingDate"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUserName"
-        tools:layout_editor_absoluteX="-60dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/editTextReadingTime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="@string/hintReadingDate"
-        app:layout_constraintTop_toBottomOf="@+id/editTextReadingDate"
-        tools:layout_editor_absoluteX="0dp" />
+        <EditText
+            android:id="@+id/editTextUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/hintUserId"
+            android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/editTextSystolicReading"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="@string/hintSystolicReading"
-        android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextReadingTime"
-        tools:layout_editor_absoluteX="0dp" />
+        <TextView
+            android:id="@+id/editTextReadingDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/hintReadingDate" />
 
-    <EditText
-        android:id="@+id/editTextDiastolicReading"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hintDiastolicReading"
-        android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSystolicReading"
-        tools:layout_editor_absoluteX="0dp" />
+        <TextView
+            android:id="@+id/editTextReadingTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/hintReadingDate" />
 
-    <TextView
-        android:id="@+id/editTextCondition"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/hintCondition"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDiastolicReading"
-        tools:layout_editor_absoluteX="0dp" />
+        <EditText
+            android:id="@+id/editTextSystolicReading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/hintSystolicReading"
+            android:inputType="textPersonName" />
 
-    <Button
-        android:id="@+id/buttonAddReading"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/btnAddReading"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCondition"
-        tools:layout_editor_absoluteX="0dp" />
+        <EditText
+            android:id="@+id/editTextDiastolicReading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hintDiastolicReading"
+            android:inputType="textPersonName" />
 
-    <Button
-        android:id="@+id/buttonGoToReadings"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/editTextCondition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/hintCondition" />
 
-        android:text="Go to readings"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAddReading"
-        tools:layout_editor_absoluteX="-16dp" />
+        <Button
+            android:id="@+id/buttonAddReading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/btnAddReading" />
 
-    <Button
-        android:id="@+id/buttonGoToAverages"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="See Monthly Averages"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGoToReadings"
-        tools:layout_editor_absoluteX="0dp" />
+        <Button
+            android:id="@+id/buttonGoToReadings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go to readings" />
 
+        <Button
+            android:id="@+id/buttonGoToAverages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="See Monthly Averages" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+</ScrollView>
