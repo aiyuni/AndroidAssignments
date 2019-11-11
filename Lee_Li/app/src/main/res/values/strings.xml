@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Ho Joo Lee, Perry Li</string>
+    <string name="hintUserId">User ID</string>
+    <string name="hintReadingDate">Reading Date</string>
+    <string name="hintReadingTime">Reading Time</string>
+    <string name="hintSystolicReading">Systolic Reading</string>
+    <string name="hintDiastolicReading">Diastolic Reading</string>
+    <string name="hintCondition">Condition(auto-evaluated)</string>
+    <string name="btnAddReading">Add Blood Pressure Reading</string>
+    <string name="enterNewName">Enter New Name</string>
+    <string name="btnUpdate">Update</string>
+    <string name="btnDelete">Delete</string>
+    <string name="btnShowList">Show List</string>
+
+</resources>
