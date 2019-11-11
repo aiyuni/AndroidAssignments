@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     TextView condition;
     Button buttonAddReading;
     Button buttonGoToReadings;
+    Button buttonGoToAverages;
 
     DatabaseReference databaseReadings;
 
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         buttonAddReading = findViewById(R.id.buttonAddReading);
         buttonGoToReadings = findViewById(R.id.buttonGoToReadings);
+        buttonGoToAverages = findViewById(R.id.buttonGoToAverages);
 
         databaseReadings = FirebaseDatabase.getInstance().getReference("readings");
 
@@ -71,6 +73,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonGoToAverages.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(MainActivity.this, AverageActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         resetData();
 
     }
@@ -83,6 +94,19 @@ public class MainActivity extends AppCompatActivity {
         String systolicReadingString = editSystolicReading.getText().toString();
         String diastolicReadingString = editDiastolicReading.getText().toString();
 
+        if (userName.equals("") || systolicReadingString.equals("") || diastolicReadingString.equals("")){
+            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+            alertDialog.setTitle("Invalid Input");
+            alertDialog.setMessage("Please input all the fields!");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+            return;
+        }
         String userId = databaseReadings.push().getKey();
         BloodPressure bp = new BloodPressure(userId, userName, dateString, timeString, Integer.parseInt(systolicReadingString), Integer.parseInt(diastolicReadingString));
 

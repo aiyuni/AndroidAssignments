@@ -2,7 +2,11 @@ package com.example.assignment2;
 
 import android.app.AlertDialog;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.SimpleTimeZone;
 
 public class BloodPressure {
 
@@ -13,6 +17,7 @@ public class BloodPressure {
     public int systolicReading;
     public int diastolicReading;
     public String condition;
+    public int month;
 
     public BloodPressure(){
 
@@ -25,6 +30,13 @@ public class BloodPressure {
         this.readingTime = readingTime;
         this.systolicReading = systolicReading;
         this.diastolicReading = diastolicReading;
+
+        /*try {
+            Date date1 = new SimpleDateFormat("dd/MM/yyyy").parse(readingDate);
+            month = date1.getMonth();
+        } catch (Exception e){
+            System.out.println("something went wrong: " + e.toString());
+        } */
 
         if (systolicReading < 120 && diastolicReading < 80){
             condition = "Normal";
